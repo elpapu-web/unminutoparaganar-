@@ -1,0 +1,148 @@
+:root{
+    --color1: #FFF6EA;
+    --color2: #FEECB3;
+    --color3: #a495a5;
+    --color4: #eddbf3;
+}
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    background-color: gray;
+    padding: 15px;
+    height: min-content;
+    background-color: var(--color1);
+}
+
+.interaction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color4);
+}
+
+h2{
+    margin-left: 10px;
+    font-size: 4rem;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+
+nav a:first-child{
+    margin-right: 10px;
+}
+
+#navigation{
+    width: 100%;
+    height: fit-content;
+    background-color: var(--color2);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: 3px solid #fce8a5bd;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#navigation .return{
+    width: fit-content;
+    height: fit-content;
+}
+
+#navigation .return a{
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation .questionLinks{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.q{
+    width: 100%;
+    height: 500px;
+    display: grid;
+    column-gap: 2%;
+    row-gap: 1%;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 24% 24% 24% 25%;
+    padding: 10px;
+    border-radius: 5%;
+    background-color: var(--color2);
+    margin-bottom: 3rem;
+}
+
+.roundered{
+    border-radius: 35px;
+}
+
+.q .interaction{
+    grid-column: 1 / -1;
+    grid-row: 1 / 1;
+}
+
+.q .question{
+    grid-column: 1 / -1;
+    grid-row: 2 / 4;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: justify;
+    background-color: var(--color3);
+}
+
+.q  .options{
+    grid-column: 1 / -1;
+    grid-row: 4 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px;
+    font-size: 1.7rem;
+    background-color: var(--color3);
+}
+
+.q .image{
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+}
+
+.q .image > img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.video, .audio{
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.video i, .audio i{
+    font-size: 5rem;
+    width: 100%;
+    height: 100%;
+}
