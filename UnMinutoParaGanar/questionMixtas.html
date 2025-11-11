@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/questionMixtas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Preguntas Mixtas - Un Minuto Para Ganar</title>
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Un Minuto Para Ganar</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#q1" class="nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Pregunta 1</span>
+                </a>
+                <a href="#q2" class="nav-link">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Pregunta 2</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Pregunta 1 con imagen -->
+        <section class="question-card qIm" id="q1">
+            <div class="question-header">
+                <div class="question-number">
+                    <span class="number">01</span>
+                    <span class="label">Pregunta</span>
+                </div>
+                <div class="question-actions">
+                    <a href="https://youtu.be/jcqthREBlKo" class="action-btn video-btn" title="Ver video explicativo">
+                        <i class="fas fa-play"></i>
+                        <span>Video</span>
+                    </a>
+                    <a href="./audios/qIm1.mp3" class="action-btn audio-btn" title="Escuchar audio">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Audio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="question-content">
+                <div class="question-text">
+                    <h3>Teniendo en cuenta el comportamiento del radio atómico en la gráfica, podemos inferir que los elementos con mayor radio atómico son los que están ubicados en el grupo</h3>
+                </div>
+
+                <div class="question-image">
+                    <img src="./IMAGES/qImages1.jpg" alt="Gráfica de radio atómico">
+                    <div class="image-overlay">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+
+                <div class="options-container">
+                    <div class="option" data-option="A">
+                        <div class="option-marker">A</div>
+                        <div class="option-text">VI A; periodo 3.</div>
+                    </div>
+                    <div class="option" data-option="B">
+                        <div class="option-marker">B</div>
+                        <div class="option-text">I A y II A; periodo 1.</div>
+                    </div>
+                    <div class="option" data-option="C">
+                        <div class="option-marker">C</div>
+                        <div class="option-text">I A; periodo 7.</div>
+                    </div>
+                    <div class="option" data-option="D">
+                        <div class="option-marker">D</div>
+                        <div class="option-text">V A; periodo 5.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pregunta 2 sin imagen -->
+        <section class="question-card qNoIm" id="q2">
+            <div class="question-header">
+                <div class="question-number">
+                    <span class="number">02</span>
+                    <span class="label">Pregunta</span>
+                </div>
+                <div class="question-actions">
+                    <a href="https://youtu.be/jcqthREBlKo" class="action-btn video-btn" title="Ver video explicativo">
+                        <i class="fas fa-play"></i>
+                        <span>Video</span>
+                    </a>
+                    <a href="./audios/qNoIm1.mp3" class="action-btn audio-btn" title="Escuchar audio">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Audio</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="question-content">
+                <div class="question-text">
+                    <h3>¿Cuál de las siguientes opciones representa correctamente la configuración electrónica del átomo de sodio (Na) en su estado fundamental?</h3>
+                </div>
+
+                <div class="options-container">
+                    <div class="option" data-option="A">
+                        <div class="option-marker">A</div>
+                        <div class="option-text">1s² 2s² 2p⁶ 3s¹</div>
+                    </div>
+                    <div class="option" data-option="B">
+                        <div class="option-marker">B</div>
+                        <div class="option-text">1s² 2s² 2p⁶ 3s²</div>
+                    </div>
+                    <div class="option" data-option="C">
+                        <div class="option-marker">C</div>
+                        <div class="option-text">1s² 2s² 2p⁶ 3s² 3p¹</div>
+                    </div>
+                    <div class="option" data-option="D">
+                        <div class="option-marker">D</div>
+                        <div class="option-text">1s² 2s² 2p⁶ 3s² 3p⁶</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="unminutoparaganar.js"></script>
+    <script>
+        // Funcionalidad para las opciones de preguntas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener todas las opciones
+            const options = document.querySelectorAll('.option');
+            
+            // Agregar evento de clic a cada opción
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const optionLetter = this.getAttribute('data-option');
+                    const questionCard = this.closest('.question-card');
+                    const questionNumber = questionCard.querySelector('.question-number .number').textContent;
+                    
+                    // Crear mensaje de confirmación
+                    const message = `¡Has seleccionado la opción ${optionLetter} de la pregunta ${questionNumber}!`;
+                    
+                    // Mostrar notificación elegante
+                    showNotification(message, optionLetter);
+                    
+                    // Efecto visual en la opción seleccionada
+                    highlightSelectedOption(this);
+                });
+            });
+            
+            // Función para mostrar notificación
+            function showNotification(message, optionLetter) {
+                // Crear elemento de notificación
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <div class="notification-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h4>Opción Seleccionada</h4>
+                            <p>${message}</p>
+                        </div>
+                        <button class="notification-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Agregar estilos dinámicos
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    z-index: 10000;
+                    transform: translateX(400px);
+                    transition: all 0.3s ease;
+                    max-width: 350px;
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255,255,255,0.2);
+                `;
+                
+                // Agregar al body
+                document.body.appendChild(notification);
+                
+                // Animar entrada
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Cerrar notificación al hacer clic en X
+                const closeBtn = notification.querySelector('.notification-close');
+                closeBtn.addEventListener('click', () => {
+                    notification.style.transform = 'translateX(400px)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                });
+                
+                // Auto-cerrar después de 5 segundos
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        notification.style.transform = 'translateX(400px)';
+                        setTimeout(() => {
+                            if (document.body.contains(notification)) {
+                                document.body.removeChild(notification);
+                            }
+                        }, 300);
+                    }
+                }, 5000);
+            }
+            
+            // Función para resaltar opción seleccionada
+            function highlightSelectedOption(selectedOption) {
+                // Remover resaltado anterior de la misma pregunta
+                const questionCard = selectedOption.closest('.question-card');
+                const allOptionsInQuestion = questionCard.querySelectorAll('.option');
+                
+                allOptionsInQuestion.forEach(option => {
+                    option.classList.remove('selected');
+                    option.style.background = 'rgba(255, 255, 255, 0.1)';
+                    option.style.border = '1px solid var(--card-border)';
+                });
+                
+                // Resaltar opción seleccionada
+                selectedOption.classList.add('selected');
+                selectedOption.style.background = 'linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3))';
+                selectedOption.style.border = '2px solid #667eea';
+                selectedOption.style.transform = 'scale(1.02)';
+                
+                // Efecto de pulso
+                selectedOption.style.animation = 'pulse 0.6s ease';
+                setTimeout(() => {
+                    selectedOption.style.animation = '';
+                }, 600);
+            }
+        });
+    </script>
+</body>
+</html>

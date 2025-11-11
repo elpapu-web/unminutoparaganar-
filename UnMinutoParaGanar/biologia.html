@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="IMAGES/logo icfes.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="dropdown.js"></script>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <title>Preguntas de Biología - Un Minuto Para Ganar - ICFES</title>
+</head>
+
+<body>
+  
+    <!-- Botón de toggle flotante -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar mejorado -->
+    <aside class="vertical-sidebar closed" id="vertical-sidebar">
+        <nav>
+            <header>
+                <figure>
+                    <img class="codepen-logo" src="IMAGES/logo icfes.png" alt="" />
+                    <figcaption>
+                        <p class="user-id">UN MINUTO</p>
+                        <p class="user-role">para ganar - ICFES</p>
+                    </figcaption>
+                </figure>
+            </header>
+            <section class="sidebar__wrapper">
+                <ul class="sidebar__list list--primary">
+                    <li class="sidebar__item item--heading">
+                        <h2 class="sidebar__item--heading">general</h2>
+                    </li>
+                    
+                    <li class="sidebar__item">
+                        <a class="sidebar__link" href="index.html">
+                            <span class="icon">
+                                <i class="fas fa-home" style="color: #ffffff;"></i>
+                            </span>
+                            <span class="text">Inicio</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar__item">
+                        <a class="sidebar__link" href="quimica.html">
+                            <span class="icon">
+                                <i class="fa-regular fa-snowflake fa-beat" style="color: #ffffff;"></i>
+                            </span>
+                            <span class="text">Preguntas de Química</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar__item">
+                        <a class="sidebar__link" href="biologia.html">
+                            <span class="icon">
+                                <i class="fa-brands fa-suse fa-beat" style="color: #ffffff;"></i>
+                            </span>
+                            <span class="text">Preguntas de Biología</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar__item">
+                        <a class="sidebar__link" href="fisica.html">
+                            <span class="icon">
+                                <i class="fa-brands fa-react fa-beat" style="color: #ffffff;"></i>
+                            </span>
+                            <span class="text">Preguntas de Física</span>
+                        </a>
+                    </li>
+                    
+                        <li class="sidebar__item">
+                            <a class="sidebar__link" href="medio-ambiente.html">
+                                <span class="icon">
+                                    <i class="fa-solid fa-recycle fa-beat" style="color: #ffffff;"></i>
+                                </span>
+                                <span class="text">preguntas de Medio Ambiente</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar__item">
+                            <a class="sidebar__link" href="#" id="theme-toggle">
+                                <span class="icon">
+                                    <i class="fas fa-moon" id="theme-icon"></i>
+                                </span>
+                                <span class="text">Modo Oscuro</span>
+                            </a>
+                        </li>
+                </ul>
+            </section>
+        </nav>
+    </aside>
+
+    <section class="bg">
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>
+
+        <main>
+            <section class="titulo">
+               
+                <div class="hover-container">
+                    <h1 class="explosive-text">Preguntas de Biología</h1>
+                </div>
+            </section>
+
+            <!-- Contenido de la página de biología -->
+            <section class="content-section">
+                <div class="content-container">
+                    <h2>Selecciona el tipo de preguntas de biología</h2>
+                    
+                    <div class="options-grid">
+                        <a href="biologiaConImagenes.html" class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h3>Preguntas con Imágenes</h3>
+                            <p>Preguntas de biología con imágenes</p>
+                        </a>
+                        
+                        <a href="biologiaSinImagenes.html" class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-text-width"></i>
+                            </div>
+                            <h3>Preguntas sin Imágenes</h3>
+                            <p>Preguntas de biología sin imágenes</p>
+                        </a>
+                        
+                      
+            </section>
+        </main>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Script principal cargado");
+            
+            // Control del sidebar mejorado
+            const sidebarToggle = document.getElementById("sidebar-toggle");
+            const verticalSidebar = document.getElementById("vertical-sidebar");
+            
+            // Función para guardar el estado del sidebar
+            function saveSidebarState(isOpen) {
+                localStorage.setItem('sidebarOpen', isOpen);
+            }
+            
+            // Función para cargar el estado del sidebar
+            function loadSidebarState() {
+                const isOpen = localStorage.getItem('sidebarOpen') === 'true';
+                if (isOpen) {
+                    verticalSidebar.classList.remove("closed");
+                    verticalSidebar.classList.add("open");
+                    sidebarToggle.classList.add("open");
+                } else {
+                    verticalSidebar.classList.remove("open");
+                    verticalSidebar.classList.add("closed");
+                    sidebarToggle.classList.remove("open");
+                }
+            }
+            
+            // Cargar el estado al iniciar la página
+            loadSidebarState();
+            
+            // Toggle del sidebar (abrir/cerrar con el mismo botón)
+            sidebarToggle.addEventListener("click", function() {
+                if (verticalSidebar.classList.contains("closed")) {
+                    // Abrir sidebar
+                    verticalSidebar.classList.remove("closed");
+                    verticalSidebar.classList.add("open");
+                    sidebarToggle.classList.add("open");
+                    saveSidebarState(true);
+                } else {
+                    // Cerrar sidebar
+                    verticalSidebar.classList.remove("open");
+                    verticalSidebar.classList.add("closed");
+                    sidebarToggle.classList.remove("open");
+                    saveSidebarState(false);
+                }
+            });
+            
+            // Cerrar sidebar al hacer clic fuera
+            document.addEventListener("click", function(e) {
+                if (!verticalSidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    verticalSidebar.classList.remove("open");
+                    verticalSidebar.classList.add("closed");
+                    sidebarToggle.classList.remove("open");
+                    saveSidebarState(false);
+                }
+            });
+            
+            // Cerrar sidebar con tecla Escape
+            document.addEventListener("keydown", function(e) {
+                if (e.key === "Escape") {
+                    verticalSidebar.classList.remove("open");
+                    verticalSidebar.classList.add("closed");
+                    sidebarToggle.classList.remove("open");
+                    saveSidebarState(false);
+                }
+            });
+
+            // ===== SISTEMA DE MODO OSCURO =====
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const body = document.body;
+
+            // Función para guardar el tema
+            function saveTheme(isDark) {
+                localStorage.setItem('darkMode', isDark);
+            }
+
+            // Función para cargar el tema
+            function loadTheme() {
+                const isDark = localStorage.getItem('darkMode') === 'true';
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeIcon.className = 'fas fa-moon';
+                }
+            }
+
+            // Cargar el tema al iniciar
+            loadTheme();
+
+            // Toggle del tema
+            themeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                body.classList.toggle('dark-mode');
+                
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.className = 'fas fa-sun';
+                    saveTheme(true);
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    saveTheme(false);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html> 
